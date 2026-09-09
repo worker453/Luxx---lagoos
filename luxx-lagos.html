@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxx Lagos — Open-air lounge, cocktails &amp; live music, Abule Egba</title>
+<meta name="description" content="Luxx Lagos: outdoor seating, hand-poured cocktails and live music on Agbe Road, Abule Egba. Open till 1am. Reserve on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0c08;
+    --charcoal:#14170f;
+    --charcoal-2:#1b1f15;
+    --gold:#c89b3c;
+    --gold-bright:#eccd80;
+    --palm:#26402c;
+    --palm-light:#3c5e42;
+    --wine:#7c2b3b;
+    --cream:#f2ead6;
+    --smoke:#a7a495;
+    --line: rgba(242,234,214,0.14);
+    --radius-sm: 3px;
+    --radius-md: 6px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  p{margin:0;}
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 32px;
+    background:linear-gradient(to bottom, rgba(10,12,8,0.75), transparent);
+    transition:background 0.4s ease, padding 0.4s ease;
+  }
+  .nav.scrolled{
+    background:rgba(10,12,8,0.92);
+    backdrop-filter:blur(10px);
+    padding:14px 32px;
+    border-bottom:1px solid var(--line);
+  }
+  .nav-mark{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color:var(--gold-bright);
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    font-size:0.88rem;
+    color:var(--smoke);
+  }
+  .nav-links a{text-decoration:none; transition:color 0.25s;}
+  .nav-links a:hover{color:var(--gold-bright);}
+  .nav-cta{
+    font-size:0.85rem;
+    padding:9px 18px;
+    border:1px solid var(--gold);
+    border-radius:100px;
+    text-decoration:none;
+    color:var(--gold-bright);
+    transition:background 0.25s, color 0.25s;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--gold); color:var(--ink);}
+  @media (max-width:800px){ .nav-links{display:none;} }
+
+  /* ---------- HERO / 3D STAGE ---------- */
+  .hero{
+    position:relative;
+    height:100vh;
+    min-height:640px;
+    overflow:hidden;
+    perspective:1200px;
+    background:radial-gradient(120% 90% at 50% 108%, #3a2a12 0%, #17120a 42%, #0a0c08 78%);
+  }
+  .hero-stage{
+    position:absolute;
+    inset:0;
+    transform-style:preserve-3d;
+    will-change:transform;
+  }
+  .layer{
+    position:absolute;
+    inset:0;
+    transform-style:preserve-3d;
+    will-change:transform;
+  }
+
+  /* sky glow */
+  .l-sky{
+    background:radial-gradient(60% 45% at 50% 62%, rgba(200,155,60,0.35), transparent 70%);
+  }
+
+  /* stars */
+  .l-stars{opacity:0.6;}
+  .star{
+    position:absolute;
+    width:2px; height:2px;
+    background:var(--cream);
+    border-radius:50%;
+    opacity:0.5;
+  }
+
+  /* skyline */
+  .l-skyline{ bottom:0; height:46%; }
+  .l-skyline svg{ position:absolute; bottom:0; width:100%; height:100%; }
+
+  /* string lights */
+  .l-lights svg{position:absolute; top:8%; width:100%; height:40%;}
+
+  /* palm fronds */
+  .l-palm-left{ left:-6%; bottom:-4%; width:46%; height:78%; }
+  .l-palm-right{ right:-8%; bottom:-6%; width:50%; height:86%; }
+  .l-palm-left svg, .l-palm-right svg{width:100%; height:100%;}
+
+  /* wordmark */
+  .hero-content{
+    position:relative;
+    z-index:5;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    padding:0 32px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .hero-sign{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(1rem, 2vw, 1.15rem);
+    color:var(--gold-bright);
+    letter-spacing:0.02em;
+    margin-bottom:18px;
+    text-shadow:0 0 24px rgba(232,196,116,0.5);
+  }
+  .hero-title{
+    font-size:clamp(2.6rem, 6.2vw, 5.2rem);
+    line-height:1.03;
+    color:var(--cream);
+    max-width:11.5em;
+  }
+  .hero-title em{
+    font-style:italic;
+    color:var(--gold-bright);
+  }
+  .hero-sub{
+    margin-top:26px;
+    max-width:34em;
+    font-size:1.05rem;
+    color:var(--smoke);
+  }
+  .hero-actions{
+    margin-top:36px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:100px;
+    font-size:0.92rem;
+    font-weight:500;
+    text-decoration:none;
+    transition:transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    border:1px solid transparent;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--ink);
+  }
+  .btn-primary:hover{ background:var(--gold-bright); }
+  .btn-ghost{
+    border-color:var(--line);
+    color:var(--cream);
+  }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-bright); }
+
+  .hero-meta{
+    position:absolute;
+    left:32px; right:32px; bottom:28px;
+    z-index:5;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    color:var(--smoke);
+    font-size:0.82rem;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .hero-meta .rating{
+    color:var(--gold-bright);
+    font-family:'Fraunces', serif;
+    font-size:1rem;
+  }
+  .scroll-cue{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    color:var(--smoke);
+    font-size:0.75rem;
+  }
+  .scroll-cue .line{
+    width:1px; height:34px;
+    background:linear-gradient(to bottom, var(--gold-bright), transparent);
+    animation:pulseLine 2.2s ease-in-out infinite;
+  }
+  @keyframes pulseLine{
+    0%,100%{ opacity:0.3; }
+    50%{ opacity:1; }
+  }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{
+    position:relative;
+    padding:120px 0;
+  }
+  @media (max-width:640px){
+    section{padding:80px 0;}
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:64px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:28px;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem, 3.4vw, 2.6rem);
+    max-width:11em;
+  }
+  .section-head .note{
+    color:var(--smoke);
+    font-size:0.92rem;
+    max-width:22em;
+    text-align:right;
+  }
+  @media (max-width:720px){
+    .section-head{ flex-direction:column; align-items:flex-start; gap:14px; }
+    .section-head .note{ text-align:left; }
+  }
+
+  /* ---------- PILLARS ---------- */
+  .pillars{
+    display:grid;
+    grid-template-columns:1.2fr 0.9fr;
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .pillar{
+    background:var(--charcoal);
+    padding:48px;
+    position:relative;
+  }
+  .pillar-outdoor{ grid-row:span 2; display:flex; flex-direction:column; justify-content:flex-end; min-height:520px; }
+  .pillar-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--gold);
+    font-size:0.95rem;
+  }
+  .pillar h3{
+    font-size:1.7rem;
+    margin-top:14px;
+    max-width:9em;
+  }
+  .pillar p{
+    margin-top:16px;
+    color:var(--smoke);
+    max-width:30em;
+    font-size:0.96rem;
+  }
+  .pillar-scene{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    opacity:0.5;
+  }
+  .pillar-outdoor .pillar-scene{
+    background:radial-gradient(80% 60% at 30% 20%, rgba(60,94,66,0.5), transparent 70%);
+  }
+  .pillar-outdoor > *{ position:relative; z-index:1; }
+  .pillar-cocktail{ background:var(--charcoal-2); }
+  .pillar-music{ background:var(--charcoal-2); }
+
+  @media (max-width:820px){
+    .pillars{ grid-template-columns:1fr; }
+    .pillar-outdoor{ min-height:0; }
+  }
+
+  /* ---------- COCKTAIL 3D SHOWCASE ---------- */
+  .cocktail-section{
+    background:var(--charcoal);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .cocktail-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .cocktail-grid{ grid-template-columns:1fr; gap:40px; }
+  }
+  .glass-stage{
+    perspective:900px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:380px;
+  }
+  .glass-3d{
+    width:220px;
+    transform-style:preserve-3d;
+    filter:drop-shadow(0 30px 40px rgba(0,0,0,0.5));
+    will-change:transform;
+  }
+  .drink-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .drink-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:20px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .drink-row:first-child{ border-top:1px solid var(--line); }
+  .drink-name{
+    font-family:'Fraunces', serif;
+    font-size:1.25rem;
+  }
+  .drink-desc{
+    color:var(--smoke);
+    font-size:0.88rem;
+    margin-top:6px;
+    max-width:26em;
+  }
+  .drink-tag{
+    font-size:0.75rem;
+    color:var(--gold-bright);
+    white-space:nowrap;
+    font-family:'Inter', sans-serif;
+  }
+
+  /* ---------- MUSIC SCHEDULE ---------- */
+  .schedule{
+    background:var(--ink);
+  }
+  .sched-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .sched-row{
+    display:grid;
+    grid-template-columns:8em 1fr auto;
+    gap:24px;
+    align-items:center;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .sched-row:first-child{ border-top:1px solid var(--line); }
+  .sched-day{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--gold-bright);
+  }
+  .sched-what{ font-size:0.98rem; }
+  .sched-time{
+    color:var(--smoke);
+    font-size:0.85rem;
+    text-align:right;
+  }
+  @media (max-width:600px){
+    .sched-row{ grid-template-columns:1fr; gap:6px; }
+    .sched-time{ text-align:left; }
+  }
+
+  /* ---------- AMBIENCE (illustrated) ---------- */
+  .ambience{
+    background:var(--charcoal);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .ambience-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .amb-tile{
+    aspect-ratio:4/5;
+    position:relative;
+    overflow:hidden;
+    background:var(--charcoal-2);
+  }
+  .amb-tile svg{ position:absolute; inset:0; width:100%; height:100%; }
+  @media (max-width:700px){
+    .ambience-grid{ grid-template-columns:repeat(2, 1fr); }
+  }
+
+  /* ---------- RATING ---------- */
+  .rating-band{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media (max-width:760px){
+    .rating-band{ grid-template-columns:1fr; gap:32px; }
+  }
+  .rating-big{
+    font-family:'Fraunces', serif;
+    font-size:5rem;
+    color:var(--gold-bright);
+    line-height:1;
+  }
+  .rating-side{ font-size:0.9rem; color:var(--smoke); margin-top:10px; }
+  .rating-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+  }
+  .tag{
+    border:1px solid var(--line);
+    border-radius:100px;
+    padding:8px 16px;
+    font-size:0.82rem;
+    color:var(--cream);
+  }
+  .rating-quote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.4;
+    color:var(--cream);
+    max-width:20em;
+  }
+
+  /* ---------- LOCATION ---------- */
+  .location{ background:var(--ink); }
+  .loc-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:820px){ .loc-grid{ grid-template-columns:1fr; } }
+  .loc-info{
+    background:var(--charcoal);
+    padding:52px;
+  }
+  .loc-row{
+    display:flex;
+    gap:16px;
+    padding:18px 0;
+    border-top:1px solid var(--line);
+  }
+  .loc-row:first-child{ border-top:none; padding-top:0; }
+  .loc-label{
+    width:8em;
+    flex-shrink:0;
+    color:var(--smoke);
+    font-size:0.85rem;
+  }
+  .loc-value{ font-size:0.98rem; }
+  .loc-value a{ color:var(--gold-bright); text-decoration:none; }
+  .loc-value a:hover{ text-decoration:underline; }
+  .map-embed{
+    background:var(--charcoal-2);
+    min-height:340px;
+  }
+  .map-embed iframe{
+    width:100%; height:100%; min-height:340px;
+    border:0;
+    filter:grayscale(0.4) invert(0.92) contrast(0.9);
+  }
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    text-align:center;
+    padding:140px 0;
+    background:radial-gradient(60% 80% at 50% 100%, rgba(200,155,60,0.16), transparent 70%);
+  }
+  .final-cta h2{
+    font-size:clamp(2rem, 4.4vw, 3.4rem);
+    max-width:14em;
+    margin:0 auto;
+  }
+  .final-cta .hero-actions{ justify-content:center; margin-top:34px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:48px 0;
+  }
+  .foot-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .foot-mark{
+    font-family:'Fraunces', serif;
+    font-size:1.1rem;
+    color:var(--gold-bright);
+  }
+  .foot-links{
+    display:flex;
+    gap:22px;
+    font-size:0.82rem;
+    color:var(--smoke);
+  }
+  .foot-links a{ text-decoration:none; }
+  .foot-links a:hover{ color:var(--gold-bright); }
+  .foot-note{
+    color:var(--smoke);
+    font-size:0.78rem;
+    margin-top:20px;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <span class="nav-mark">Luxx Lagos</span>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#drinks">Drinks</a>
+    <a href="#music">Live music</a>
+    <a href="#visit">Visit</a>
+  </div>
+  <a class="nav-cta" href="https://wa.me/2347037841650" target="_blank" rel="noopener">Reserve</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="hero">
+  <div class="hero-stage" id="heroStage">
+
+    <div class="layer l-sky"></div>
+
+    <div class="layer l-stars" id="starLayer" data-depth="0.15"></div>
+
+    <div class="layer l-lights" data-depth="0.35">
+      <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+        <path id="wirepath" d="M -20 40 Q 200 130 420 50 T 860 60 T 1240 30" fill="none" stroke="rgba(200,155,60,0.35)" stroke-width="1.5"/>
+        <g id="bulbs"></g>
+      </svg>
+    </div>
+
+    <div class="layer l-skyline" data-depth="0.25">
+      <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
+        <g fill="#0e1109">
+          <rect x="0" y="140" width="70" height="160"/>
+          <rect x="80" y="90" width="50" height="210"/>
+          <rect x="140" y="160" width="90" height="140"/>
+          <rect x="245" y="60" width="40" height="240"/>
+          <rect x="300" y="120" width="60" height="180"/>
+          <rect x="380" y="170" width="100" height="130"/>
+          <rect x="500" y="100" width="45" height="200"/>
+          <rect x="560" y="150" width="80" height="150"/>
+          <rect x="660" y="70" width="55" height="230"/>
+          <rect x="730" y="130" width="70" height="170"/>
+          <rect x="820" y="160" width="90" height="140"/>
+          <rect x="930" y="95" width="50" height="205"/>
+          <rect x="1000" y="150" width="75" height="150"/>
+          <rect x="1090" y="110" width="60" height="190"/>
+          <rect x="1160" y="170" width="60" height="130"/>
+        </g>
+        <g fill="#c89b3c" opacity="0.55">
+          <rect x="12" y="160" width="6" height="8"/>
+          <rect x="30" y="180" width="6" height="8"/>
+          <rect x="95" y="120" width="6" height="8"/>
+          <rect x="112" y="160" width="6" height="8"/>
+          <rect x="315" y="150" width="6" height="8"/>
+          <rect x="400" y="200" width="6" height="8"/>
+          <rect x="420" y="220" width="6" height="8"/>
+          <rect x="580" y="180" width="6" height="8"/>
+          <rect x="675" y="100" width="6" height="8"/>
+          <rect x="750" y="160" width="6" height="8"/>
+          <rect x="840" y="190" width="6" height="8"/>
+          <rect x="945" y="130" width="6" height="8"/>
+          <rect x="1020" y="180" width="6" height="8"/>
+          <rect x="1105" y="140" width="6" height="8"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="layer l-palm-left" data-depth="0.55">
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMinYMax meet">
+        <g fill="#0c0f08">
+          <path d="M60 500 C 40 380 30 300 70 220 C 40 240 -10 250 -30 300 C 0 220 40 190 80 180 C 40 160 0 120 -10 60 C 40 110 70 140 90 190 C 90 120 110 60 160 10 C 140 90 130 150 120 200 C 160 150 210 130 260 130 C 210 160 170 190 150 220 C 210 210 260 230 300 270 C 240 260 190 260 160 260 C 200 290 230 330 240 380 C 190 330 150 300 120 280 C 130 350 120 420 90 500 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="layer l-palm-right" data-depth="0.7">
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMaxYMax meet">
+        <g fill="#0c0f08">
+          <path d="M340 500 C 360 370 375 290 330 210 C 365 235 410 245 435 295 C 400 210 355 180 315 170 C 360 145 400 105 410 45 C 355 100 320 135 300 185 C 300 110 275 50 220 0 C 245 85 260 145 270 195 C 225 145 175 125 125 130 C 175 160 215 190 235 220 C 175 210 125 235 85 275 C 145 260 195 260 225 260 C 185 295 155 335 145 385 C 195 335 235 305 265 285 C 250 355 260 425 295 500 Z"/>
+        </g>
+      </svg>
+    </div>
+
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-sign">Luxx Lagos · Abule Egba</div>
+    <h1 class="hero-title">The night doesn't end<br>at your <em>table.</em></h1>
+    <p class="hero-sub">Open-air seating, hand-poured cocktails and a live band most nights of the week — on Agbe Road, where the evening runs till 1am.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/2347037841650" target="_blank" rel="noopener">Reserve a table on WhatsApp</a>
+      <a class="btn btn-ghost" href="#drinks">See the drinks menu</a>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <div>
+      <div class="rating">4.1 ★ <span style="color:var(--smoke); font-family:'Inter',sans-serif; font-size:0.82rem;">(67 reviews)</span></div>
+      <div>26 Agbe Road, Abule Egba, Lagos</div>
+    </div>
+    <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+  </div>
+</header>
+
+<!-- ============ PILLARS ============ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Three reasons people stay till 1am</h2>
+      <p class="note">No single thing makes a night out — it's the seat, the drink, and the sound together.</p>
+    </div>
+
+    <div class="pillars reveal">
+      <div class="pillar pillar-outdoor">
+        <div class="pillar-scene"></div>
+        <div class="pillar-num">Outdoor seating</div>
+        <h3>Tables under the open sky</h3>
+        <p>No walls, no rush. Strings of brass-toned light hang over the courtyard, and the Lagos night does the rest — warm air, low music, room to talk.</p>
+      </div>
+      <div class="pillar pillar-cocktail">
+        <div class="pillar-num">Cocktails</div>
+        <h3>Poured properly, every time</h3>
+        <p>Classic builds alongside house originals, made to order at the bar and carried out to your table generously measured.</p>
+      </div>
+      <div class="pillar pillar-music">
+        <div class="pillar-num">Live music</div>
+        <h3>A band, not a playlist</h3>
+        <p>Live sets turn dinner into a set list. Expect Afrobeats, highlife and a horn section that doesn't hold back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COCKTAILS ============ -->
+<section id="drinks" class="cocktail-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>A glass built for the night</h2>
+      <p class="note">A short pour from the menu — ask your server for the full list on arrival.</p>
+    </div>
+
+    <div class="cocktail-grid">
+      <div class="glass-stage reveal">
+        <div class="glass-3d" id="glass3d">
+          <svg viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e8c874"/>
+                <stop offset="100%" stop-color="#c89b3c"/>
+              </linearGradient>
+              <linearGradient id="glassEdge" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="rgba(242,234,214,0.05)"/>
+                <stop offset="50%" stop-color="rgba(242,234,214,0.35)"/>
+                <stop offset="100%" stop-color="rgba(242,234,214,0.05)"/>
+              </linearGradient>
+            </defs>
+            <path d="M30 20 L110 160 L190 20 Z" fill="url(#liquid)" opacity="0.85"/>
+            <path d="M20 14 L110 168 L200 14 Z" fill="none" stroke="url(#glassEdge)" stroke-width="3"/>
+            <rect x="104" y="168" width="12" height="90" fill="url(#glassEdge)"/>
+            <ellipse cx="110" cy="270" rx="46" ry="9" fill="none" stroke="url(#glassEdge)" stroke-width="3"/>
+            <circle cx="70" cy="70" r="7" fill="#f2ead6" opacity="0.7"/>
+            <path d="M60 62 Q70 50 80 62" stroke="#3c5e42" stroke-width="3" fill="none"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="drink-list reveal">
+        <div class="drink-row">
+          <div>
+            <div class="drink-name">Agbe Road Sour</div>
+            <div class="drink-desc">Whiskey, fresh citrus, a whisper of bitters — shaken hard, served short.</div>
+          </div>
+          <div class="drink-tag">House pour</div>
+        </div>
+        <div class="drink-row">
+          <div>
+            <div class="drink-name">Abule Sunset</div>
+            <div class="drink-desc">Rum, passionfruit, ginger — built for the courtyard, best after 9pm.</div>
+          </div>
+          <div class="drink-tag">Best seller</div>
+        </div>
+        <div class="drink-row">
+          <div>
+            <div class="drink-name">Luxx Mule</div>
+            <div class="drink-desc">Vodka, house ginger beer, lime, over crushed ice.</div>
+          </div>
+          <div class="drink-tag">Classic</div>
+        </div>
+        <div class="drink-row">
+          <div>
+            <div class="drink-name">Palm &amp; Smoke</div>
+            <div class="drink-desc">Mezcal, palm sugar, smoked orange peel — for the slow talkers.</div>
+          </div>
+          <div class="drink-tag">House original</div>
+        </div>
+        <p style="margin-top:24px; color:var(--smoke); font-size:0.85rem;">Average spend ₦20,000–₦30,000 per person, drinks and small plates included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MUSIC SCHEDULE ============ -->
+<section id="music" class="schedule">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>This week, on stage</h2>
+      <p class="note">Line-up can shift with the season — confirm the night's act when you reserve.</p>
+    </div>
+
+    <div class="sched-list reveal">
+      <div class="sched-row">
+        <div class="sched-day">Thursday</div>
+        <div class="sched-what">Live band — highlife &amp; Afrobeats covers</div>
+        <div class="sched-time">From 9pm</div>
+      </div>
+      <div class="sched-row">
+        <div class="sched-day">Friday</div>
+        <div class="sched-what">DJ set, courtyard floor open</div>
+        <div class="sched-time">From 10pm</div>
+      </div>
+      <div class="sched-row">
+        <div class="sched-day">Saturday</div>
+        <div class="sched-what">Full live band, guest vocalist</div>
+        <div class="sched-time">From 9pm — till close</div>
+      </div>
+      <div class="sched-row">
+        <div class="sched-day">Sunday</div>
+        <div class="sched-what">Acoustic trio, dinner hours</div>
+        <div class="sched-time">From 7pm</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AMBIENCE ============ -->
+<section class="ambience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>The room, in three moods</h2>
+      <p class="note">Illustrative — swap in your own photography here.</p>
+    </div>
+    <div class="ambience-grid reveal">
+      <div class="amb-tile">
+        <svg viewBox="0 0 300 375" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="375" fill="#1b1f15"/>
+          <ellipse cx="150" cy="330" rx="220" ry="50" fill="#26402c" opacity="0.5"/>
+          <circle cx="80" cy="120" r="4" fill="#e8c874"/>
+          <circle cx="150" cy="90" r="4" fill="#e8c874"/>
+          <circle cx="220" cy="130" r="4" fill="#e8c874"/>
+          <path d="M80 120 Q150 60 220 130" stroke="#c89b3c" stroke-width="1" fill="none" opacity="0.4"/>
+          <rect x="100" y="220" width="100" height="60" rx="4" fill="#0e1109"/>
+        </svg>
+      </div>
+      <div class="amb-tile">
+        <svg viewBox="0 0 300 375" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="375" fill="#14170f"/>
+          <rect x="0" y="260" width="300" height="115" fill="#0c0f08"/>
+          <rect x="40" y="150" width="14" height="130" fill="#0c0f08"/>
+          <rect x="246" y="150" width="14" height="130" fill="#0c0f08"/>
+          <circle cx="150" cy="150" r="60" fill="#7c2b3b" opacity="0.35"/>
+          <circle cx="150" cy="150" r="30" fill="#c89b3c" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="amb-tile">
+        <svg viewBox="0 0 300 375" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="375" fill="#1b1f15"/>
+          <path d="M0 375 C 60 280 100 260 150 260 C 200 260 240 280 300 375 Z" fill="#26402c" opacity="0.6"/>
+          <rect x="130" y="150" width="8" height="110" fill="#0c0f08"/>
+          <rect x="115" y="120" width="38" height="16" rx="3" fill="#0c0f08"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RATING ============ -->
+<section>
+  <div class="wrap">
+    <div class="rating-band reveal">
+      <div>
+        <div class="rating-big">4.1</div>
+        <div class="rating-side">from 67 reviews</div>
+        <div class="rating-tags">
+          <span class="tag">Outdoor seating</span>
+          <span class="tag">Great cocktails</span>
+          <span class="tag">Live music</span>
+        </div>
+      </div>
+      <p class="rating-quote">Guests keep coming back for the same three things: the open-air courtyard, the cocktails, and a band that plays till the last table leaves.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATION ============ -->
+<section id="visit" class="location">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Find us on Agbe Road</h2>
+      <p class="note">Walk-ins welcome — reserve ahead for weekends and live-band nights.</p>
+    </div>
+
+    <div class="loc-grid reveal">
+      <div class="loc-info">
+        <div class="loc-row">
+          <div class="loc-label">Address</div>
+          <div class="loc-value">26 Agbe Road, Abule Egba,<br>Lagos 101232, Nigeria</div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-label">Hours</div>
+          <div class="loc-value">Open daily — closes 1am</div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-label">Average spend</div>
+          <div class="loc-value">₦20,000 – ₦30,000 per person</div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-label">Phone</div>
+          <div class="loc-value"><a href="https://wa.me/2347037841650" target="_blank" rel="noopener">0703 784 1650 (WhatsApp)</a></div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-label">Directions</div>
+          <div class="loc-value"><a href="https://www.google.com/maps/search/?api=1&query=26+Agbe+Road+Abule+Egba+Lagos+101232" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+        </div>
+        <div class="hero-actions" style="margin-top:32px;">
+          <a class="btn btn-primary" href="https://wa.me/2347037841650" target="_blank" rel="noopener">Reserve on WhatsApp</a>
+        </div>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps?q=26+Agbe+Road+Abule+Egba+Lagos+101232&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map to Luxx Lagos"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="wrap reveal">
+    <h2>Save a table for tonight — the band starts at nine.</h2>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/2347037841650" target="_blank" rel="noopener">Message us on WhatsApp</a>
+      <a class="btn btn-ghost" href="#drinks">Browse the drinks list</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <span class="foot-mark">Luxx Lagos</span>
+      <div class="foot-links">
+        <a href="#experience">Experience</a>
+        <a href="#drinks">Drinks</a>
+        <a href="#music">Live music</a>
+        <a href="https://wa.me/2347037841650" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <p class="foot-note">26 Agbe Road, Abule Egba, Lagos 101232 · Open daily, closes 1am · 4.1★ (67 reviews)</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Nav background on scroll
+  var nav = document.getElementById('nav');
+  function onScrollNav(){
+    if(window.scrollY > 40){ nav.classList.add('scrolled'); }
+    else{ nav.classList.remove('scrolled'); }
+  }
+  document.addEventListener('scroll', onScrollNav, {passive:true});
+  onScrollNav();
+
+  // Scatter stars
+  var starLayer = document.getElementById('starLayer');
+  var starCount = 60;
+  for(var i=0;i<starCount;i++){
+    var s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = (Math.random()*100) + '%';
+    s.style.top = (Math.random()*55) + '%';
+    s.style.opacity = (0.2 + Math.random()*0.6).toFixed(2);
+    starLayer.appendChild(s);
+  }
+
+  // Place bulbs along the wire path
+  var wirepath = document.getElementById('wirepath');
+  var bulbsGroup = document.getElementById('bulbs');
+  var totalLen = wirepath.getTotalLength();
+  var bulbCount = 22;
+  for(var b=0;b<bulbCount;b++){
+    var pt = wirepath.getPointAtLength((totalLen/(bulbCount-1))*b);
+    var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx', pt.x);
+    c.setAttribute('cy', pt.y + 6);
+    c.setAttribute('r', 3.2);
+    c.setAttribute('fill', '#eccd80');
+    c.setAttribute('opacity', (0.5 + Math.random()*0.5).toFixed(2));
+    bulbsGroup.appendChild(c);
+  }
+
+  // 3D parallax hero stage, scroll driven
+  var hero = document.getElementById('hero');
+  var stage = document.getElementById('heroStage');
+  var layers = stage.querySelectorAll('.layer');
+
+  function updateHero(){
+    var rect = hero.getBoundingClientRect();
+    var heroHeight = hero.offsetHeight;
+    var progress = Math.min(Math.max(-rect.top / heroHeight, 0), 1); // 0 at top, 1 when scrolled past
+
+    if(reduceMotion){ return; }
+
+    stage.style.transform =
+      'rotateX(' + (progress*6) + 'deg) scale(' + (1 + progress*0.12) + ')';
+
+    layers.forEach(function(layer){
+      var depth = parseFloat(layer.getAttribute('data-depth')) || 0;
+      var ty = progress * 140 * depth;
+      var tz = progress * -260 * depth;
+      layer.style.transform = 'translateY(' + ty + 'px) translateZ(' + tz + 'px)';
+    });
+  }
+
+  var ticking = false;
+  document.addEventListener('scroll', function(){
+    if(!ticking){
+      window.requestAnimationFrame(function(){ updateHero(); ticking = false; });
+      ticking = true;
+    }
+  }, {passive:true});
+  updateHero();
+
+  // Subtle mouse parallax on hero (desktop only, ignored if reduced motion)
+  if(!reduceMotion && window.matchMedia('(hover:hover)').matches){
+    hero.addEventListener('mousemove', function(e){
+      var rectH = hero.getBoundingClientRect();
+      var mx = (e.clientX - rectH.left)/rectH.width - 0.5;
+      var my = (e.clientY - rectH.top)/rectH.height - 0.5;
+      layers.forEach(function(layer){
+        var depth = parseFloat(layer.getAttribute('data-depth')) || 0;
+        layer.style.marginLeft = (mx * 24 * depth) + 'px';
+      });
+    });
+  }
+
+  // 3D rotating glass driven by scroll position through its section
+  var glass = document.getElementById('glass3d');
+  var glassStage = glass ? glass.closest('.glass-stage') : null;
+
+  function updateGlass(){
+    if(!glass || !glassStage || reduceMotion) return;
+    var r = glassStage.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var progress = 1 - Math.min(Math.max((r.top - vh*0.2) / (vh*0.6), 0), 1);
+    var rotY = progress * 340;
+    var rotX = 8 - progress*4;
+    glass.style.transform = 'rotateY(' + rotY + 'deg) rotateX(' + rotX + 'deg)';
+  }
+  document.addEventListener('scroll', function(){
+    window.requestAnimationFrame(updateGlass);
+  }, {passive:true});
+  updateGlass();
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+</body>
+</html>
